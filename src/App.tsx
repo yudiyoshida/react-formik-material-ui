@@ -3,6 +3,7 @@ import * as yup from 'yup';
 import { TextInput } from "./components/text-input";
 import { Button } from "@mui/material";
 import { PasswordInput } from "./components/password-input";
+import { SelectInput } from "./components/select-input";
 
 interface FormFields {
   name: string;
@@ -10,6 +11,7 @@ interface FormFields {
   email: string;
   password: string;
   aboutme: string;
+  gender: string;
 }
 
 const initialValues: FormFields = {
@@ -18,6 +20,7 @@ const initialValues: FormFields = {
   email: "",
   password: "",
   aboutme: "",
+  gender: "",
 };
 
 const validationSchema: yup.Schema<FormFields> = yup.object({
@@ -26,6 +29,7 @@ const validationSchema: yup.Schema<FormFields> = yup.object({
   email: yup.string().required().email(),
   password: yup.string().required().min(8),
   aboutme: yup.string().required(),
+  gender: yup.string().required(),
 })
 
 export function App() {
@@ -47,6 +51,7 @@ export function App() {
             <TextInput name="email" label="Email" type="email" />
             <PasswordInput name="password" label="Senha" />
             <TextInput name="aboutme" label="Sobre mim" type="text" multiline />
+            <SelectInput name="gender" label="Gênero" />
             <Button
               className="md:col-span-2"
               fullWidth
