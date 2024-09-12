@@ -11,8 +11,8 @@ export function CheckboxInput({ name, ...props }: CheckboxInputProps) {
 
   return (
     <FormControlLabel
-      label={props.label} 
+      label={props.label}
       control={<Checkbox {...field} {...props} checked={field.value} />}
     />
-  )
+  );
 }

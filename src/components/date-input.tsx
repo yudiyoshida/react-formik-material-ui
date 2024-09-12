@@ -10,7 +10,7 @@ export function DateInput({ name, ...props }: DateInputProps) {
   const [field, meta] = useField(name);
 
   return (
-    <TextField 
+    <TextField
       {...field}
       {...props}
       type="date"
@@ -18,9 +18,9 @@ export function DateInput({ name, ...props }: DateInputProps) {
       helperText={meta.touched && meta.error}
       slotProps={{
         inputLabel: {
-          shrink: true
-        }
+          shrink: true,
+        },
       }}
     />
-  )
+  );
 }

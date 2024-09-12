@@ -13,15 +13,12 @@ export function SelectInput({ name, ...props }: SelectInputProps) {
     <>
       <FormControl error={meta.touched && Boolean(meta.error)}>
         <InputLabel>{props.label}</InputLabel>
-        <Select
-          {...field}
-          {...props}
-        >
+        <Select {...field} {...props}>
           <MenuItem value="male">Masculino</MenuItem>
           <MenuItem value="female">Feminino</MenuItem>
         </Select>
         <FormHelperText>{meta.touched && meta.error}</FormHelperText>
       </FormControl>
     </>
-  )
+  );
 }

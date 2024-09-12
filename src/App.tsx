@@ -1,5 +1,5 @@
 import { Form, Formik, FormikHelpers } from "formik";
-import * as yup from 'yup';
+import * as yup from "yup";
 import { TextInput } from "./components/text-input";
 import { Button } from "@mui/material";
 import { PasswordInput } from "./components/password-input";
@@ -29,24 +29,24 @@ const initialValues: FormFields = {
   gender: "",
   birthdate: new Date(),
   acceptTerms: false,
-  language: ""
+  language: "",
 };
 
 const validationSchema: yup.Schema<FormFields> = yup.object({
   name: yup.string().required(),
-  age: yup.number().typeError('Idade inválida').required().positive().integer(),
+  age: yup.number().typeError("Idade inválida").required().positive().integer(),
   email: yup.string().required().email(),
   password: yup.string().required().min(8),
   aboutme: yup.string().required(),
   gender: yup.string().required(),
   birthdate: yup.date().required(),
   acceptTerms: yup.boolean().oneOf([true]).required(),
-  language: yup.string().required()
-})
+  language: yup.string().required(),
+});
 
 export function App() {
   function handleSubmit(values: FormFields, formikHelpers: FormikHelpers<FormFields>) {
-    console.log({values, formikHelpers});
+    console.log({ values, formikHelpers });
   }
 
   return (
@@ -67,15 +67,10 @@ export function App() {
             <TextInput name="aboutme" label="Sobre mim" type="text" multiline />
             <RadioInput name="language" label="Qual sua linguagem do coração?" />
             <CheckboxInput name="acceptTerms" label="Aceito os termos de uso" />
-            <Button
-              fullWidth
-              variant="contained"
-              color="primary"
-              type="submit"
-            >Enviar</Button>
+            <Button fullWidth variant="contained" color="primary" type="submit">Enviar</Button>
           </div>
         </Form>
       </Formik>
     </main>
-  )
+  );
 }

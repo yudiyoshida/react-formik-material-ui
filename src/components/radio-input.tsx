@@ -18,5 +18,5 @@ export function RadioInput({ name, ...props }: RadioInputProps) {
         <FormControlLabel control={<Radio />} label="Opção 03" value="opcao3" />
       </RadioGroup>
     </FormControl>
-  )
+  );
 }

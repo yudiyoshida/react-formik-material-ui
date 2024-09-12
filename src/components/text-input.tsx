@@ -12,11 +12,11 @@ export function TextInput({ name, ...props }: TextInputProps) {
   const [field, meta] = useField(name);
 
   return (
-    <TextField 
+    <TextField
       {...field}
       {...props}
       error={meta.touched && Boolean(meta.error)}
       helperText={meta.touched && meta.error}
     />
-  )
+  );
 }

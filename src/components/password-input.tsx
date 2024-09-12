@@ -13,7 +13,7 @@ export function PasswordInput({ name, ...props }: PasswordInputProps) {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <TextField 
+    <TextField
       {...field}
       {...props}
       error={meta.touched && Boolean(meta.error)}
@@ -25,9 +25,9 @@ export function PasswordInput({ name, ...props }: PasswordInputProps) {
             <IconButton onClick={() => setShowPassword(!showPassword)}>
               {showPassword ? <Eye /> : <EyeOff />}
             </IconButton>
-          )
-        }
+          ),
+        },
       }}
     />
-  )
+  );
 }
