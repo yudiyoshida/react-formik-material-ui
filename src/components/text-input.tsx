@@ -5,6 +5,7 @@ interface TextInputProps {
   name: string;
   label: string;
   type: "text" | "email";
+  multiline?: boolean;
 }
 
 export function TextInput({ name, ...props }: TextInputProps) {

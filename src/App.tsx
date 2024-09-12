@@ -9,6 +9,7 @@ interface FormFields {
   age: number;
   email: string;
   password: string;
+  aboutme: string;
 }
 
 const initialValues: FormFields = {
@@ -16,6 +17,7 @@ const initialValues: FormFields = {
   age: 0,
   email: "",
   password: "",
+  aboutme: "",
 };
 
 const validationSchema: yup.Schema<FormFields> = yup.object({
@@ -23,6 +25,7 @@ const validationSchema: yup.Schema<FormFields> = yup.object({
   age: yup.number().typeError('Idade inválida').required().positive().integer(),
   email: yup.string().required().email(),
   password: yup.string().required().min(8),
+  aboutme: yup.string().required(),
 })
 
 export function App() {
@@ -43,6 +46,7 @@ export function App() {
             <TextInput name="age" label="Idade" type="text" />
             <TextInput name="email" label="Email" type="email" />
             <PasswordInput name="password" label="Senha" />
+            <TextInput name="aboutme" label="Sobre mim" type="text" multiline />
             <Button
               className="md:col-span-2"
               fullWidth
