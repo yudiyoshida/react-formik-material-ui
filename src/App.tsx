@@ -4,6 +4,7 @@ import { TextInput } from "./components/text-input";
 import { Button } from "@mui/material";
 import { PasswordInput } from "./components/password-input";
 import { SelectInput } from "./components/select-input";
+import { DateInput } from "./components/date-input";
 
 interface FormFields {
   name: string;
@@ -12,6 +13,7 @@ interface FormFields {
   password: string;
   aboutme: string;
   gender: string;
+  birthdate: Date;
 }
 
 const initialValues: FormFields = {
@@ -21,6 +23,7 @@ const initialValues: FormFields = {
   password: "",
   aboutme: "",
   gender: "",
+  birthdate: new Date(),
 };
 
 const validationSchema: yup.Schema<FormFields> = yup.object({
@@ -30,6 +33,7 @@ const validationSchema: yup.Schema<FormFields> = yup.object({
   password: yup.string().required().min(8),
   aboutme: yup.string().required(),
   gender: yup.string().required(),
+  birthdate: yup.date().required(),
 })
 
 export function App() {
@@ -50,8 +54,9 @@ export function App() {
             <TextInput name="age" label="Idade" type="text" />
             <TextInput name="email" label="Email" type="email" />
             <PasswordInput name="password" label="Senha" />
-            <TextInput name="aboutme" label="Sobre mim" type="text" multiline />
             <SelectInput name="gender" label="Gênero" />
+            <DateInput name="birthdate" label="Data de nascimento" />
+            <TextInput name="aboutme" label="Sobre mim" type="text" multiline />
             <Button
               className="md:col-span-2"
               fullWidth
