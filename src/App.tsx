@@ -5,6 +5,7 @@ import { Button } from "@mui/material";
 import { PasswordInput } from "./components/password-input";
 import { SelectInput } from "./components/select-input";
 import { DateInput } from "./components/date-input";
+import { CheckboxInput } from "./components/checkbox-input";
 
 interface FormFields {
   name: string;
@@ -14,6 +15,7 @@ interface FormFields {
   aboutme: string;
   gender: string;
   birthdate: Date;
+  acceptTerms: boolean;
 }
 
 const initialValues: FormFields = {
@@ -24,6 +26,7 @@ const initialValues: FormFields = {
   aboutme: "",
   gender: "",
   birthdate: new Date(),
+  acceptTerms: false
 };
 
 const validationSchema: yup.Schema<FormFields> = yup.object({
@@ -34,6 +37,7 @@ const validationSchema: yup.Schema<FormFields> = yup.object({
   aboutme: yup.string().required(),
   gender: yup.string().required(),
   birthdate: yup.date().required(),
+  acceptTerms: yup.boolean().oneOf([true]).required()
 })
 
 export function App() {
@@ -57,6 +61,7 @@ export function App() {
             <SelectInput name="gender" label="Gênero" />
             <DateInput name="birthdate" label="Data de nascimento" />
             <TextInput name="aboutme" label="Sobre mim" type="text" multiline />
+            <CheckboxInput name="acceptTerms" label="Aceito os termos de uso" />
             <Button
               className="md:col-span-2"
               fullWidth
